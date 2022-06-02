@@ -1,7 +1,8 @@
-# frozen_string_literal: true
-
 class PostsController < ApplicationController
   def index; end
 
-  def show; end
+  def show
+    @user_id = params['user_id']
+    @id = params['id']
+  end
 end
