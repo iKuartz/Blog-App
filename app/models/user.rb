@@ -1,7 +1,9 @@
 class User < ApplicationRecord
-  has_many :comments, dependent: :destroy
-  has_many :posts, dependent: :destroy
-  has_many :likes, dependent: :nullify
-  validates :name, presence: true
-    scope :last_three_posts, ->(user) { Post.where(author: user).last(3) }
+  has_many :posts, foreign_key: 'author_id'
+  has_many :comments, foreign_key: 'author_id'
+  has_many :likes, foreign_key: 'author_id'
+
+  def most_recent_posts
+    posts.order(created_at: :desc).limit(3)
+  end
 end
