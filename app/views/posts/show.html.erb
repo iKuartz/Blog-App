@@ -1,13 +1,12 @@
-<div class="posts">
-    <div class="post_comments">
-        <h4><%=@post.title%> by: <%=@post.author.name%></h4>
-        <span>Comments: <%=@post.comments_counter%>, Likes: <%=@post.likes_counter%></span>
+<section class="user-post-detail"> 
+    <div class="user-picture">
+      <img src=<%=@post.author.photo%> alt=<%=@post.author.name%> />
     </div>
-    <p><%=@post.text%></p>
-</div>
+    <div class="user-detail"> 
+      <h2 class="user-name"><%=@post.author.name %></h2>
+      <p><strong>Number of Posts: <%= @post.author.posts_counter || 0 %>
+    </div>    
+    <p><%= @post.text %></p>
+    <%= render "shared/comments", comments: @post.comments %>  
 
-<div class= "comments">
-    <%@comment.each do |comment|%>
-        <p><%= comment.author.name %>: <%=comment.text%></p>
-    <%end%>
-</div>
+</section>

@@ -1,11 +1,10 @@
-<%= render @user %>
-<%@post.each do |post|%>
-<%= render post %>
-<div class='comments'>
-    <%post.most_recent_comments.each do |comment|%>
-    <p><%=post.author.name%>: <%=comment.text%></p>
-    <%end%>
-</div>
-<%end%>
-
-<button>Pagination</button> 
+<section class="users-list"> 
+  <h1>List of Post</h1> 
+  <div class="user-post">
+    <%= render "shared/profile", user: @posts.first.author %>   
+    <%@posts.each do |post| %>
+      <%= render "shared/post", post: post %>  
+      <%= render "shared/comments", comments: post.comments %> 
+    <%end %>    
+  </div>
+</section>

@@ -1,11 +1,9 @@
 class PostsController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
-    @post = Post.where(author_id: @user.id).order(created_at: :desc)
+    @posts = Post.where(author_id: params[:user_id])
   end
 
   def show
-    @post = Post.find(params[:id])
-    @comment = Comment.where(post_id: @post.id).order(created_at: :desc)
+    @post = Post.where(author_id: params[:user_id]).find(params[:id]) || []
   end
 end

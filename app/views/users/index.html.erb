@@ -1,3 +1,6 @@
-<% @user.each do |user| %>
-    <%= render user %>
-<%end%> 
+<section class="users-list"> 
+  <h1>Our users</h1>
+  <%@users.each do |user| %>
+     <%= render "shared/profile",  user: user %>
+  <%end %>
+</section>
