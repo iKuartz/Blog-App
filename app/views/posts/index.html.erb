@@ -1,1 +1,10 @@
-<h1>Posted?</h1>
+<section class="users-list"> 
+  <h1>List of Post</h1> 
+  <div class="user-post">
+    <%= render "shared/profile", user: @posts.first.author %>   
+    <%@posts.each do |post| %>
+      <%= render "shared/post", post: post %>  
+      <%= render "shared/comments", comments: post.comments %> 
+    <%end %>    
+  </div>
+</section>
