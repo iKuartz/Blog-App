@@ -1,12 +1,25 @@
-<%= render @user %>
-
-<div class="bio">
-    <h2>Bio</h2>
+<section class="user">
+  <%= render "shared/profile",  user: @user %>
+    <%= link_to "CREATE NEW POST", new_user_post_path(@user) %>      
+   <%= link_to "Delete Account", user_path(@user), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure you wish to DELETE your account?"
+                  } %>
+  <div>
+  <h3>Bio</h3>
     <p><%=@user.bio%></p>
-</div>
+  </div>
 
-<%@post.each do |post|%>
-    <%= render post %>
-<%end%>
+  <% @user.posts.limit(2).each do |post| %>
+    <%= render "shared/post", post: post %>
+  <%end %>
 
-<button><%= link_to ("See all posts"),user_posts_path(@user.id) %></button> 
+  <% if @user.posts.count > 2 %>
+    <button type="button">
+      See All Posts
+    <button>
+  <%end%>
+
+  <%= link_to "HOME", users_path %>   
+
+</section>

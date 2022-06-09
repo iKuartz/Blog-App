@@ -1,7 +1,8 @@
 <section class="users-list"> 
   <h1>List of Post</h1> 
   <div class="user-post">
-    <%= render "shared/profile", user: @posts.first.author %>   
+    <%= render "shared/profile", user: @posts.first.author %>
+    <%= link_to "New Post", new_user_post_path %>     
     <%@posts.each do |post| %>
       <%= render "shared/post", post: post %>  
       <%= render "shared/comments", comments: post.comments %> 
