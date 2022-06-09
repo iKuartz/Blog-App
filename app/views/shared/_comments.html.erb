@@ -1,10 +1,9 @@
-<div>
-  <%if comments %>
-    <% comments.each do |comment| %>
-      <p>
-        <strong><%= comment.author.name %>: </strong>
-        <%=comment.text%> 
-      </p>
-    <%end%>
-  <%end%> 
-</div>
+<% comments.each do |comment| %>
+  <li>
+    <p><strong><%= comment.author.name %>: </strong></p>
+    <p class="text">
+      <%= comment.text %>
+    </p>
+    <br>
+  </li>
+<% end %>
