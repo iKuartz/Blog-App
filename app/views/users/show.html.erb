@@ -1,25 +1,19 @@
-<section class="user">
-  <%= render "shared/profile",  user: @user %>
-    <%= link_to "CREATE NEW POST", new_user_post_path(@user) %>      
-   <%= link_to "Delete Account", user_path(@user), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure you wish to DELETE your account?"
-                  } %>
-  <div>
-  <h3>Bio</h3>
-    <p><%=@user.bio%></p>
-  </div>
+<section id="users-show" class="flex-col">
+  <ul class="user-info flex-col">
+    <li class="flex">
+      <%= render "shared/user_container", user: @user %>
+    </li>
 
-  <% @user.posts.limit(2).each do |post| %>
-    <%= render "shared/post", post: post %>
-  <%end %>
+    <li class="bio flex-col border">
+      <h4>Bio</h4>
+      <p><%= @user.bio %></p>
+    </li>
 
-  <% if @user.posts.count > 2 %>
-    <button type="button">
-      See All Posts
-    <button>
-  <%end%>
-
-  <%= link_to "HOME", users_path %>   
-
+    <li class="posts">
+      <ul class="flex-col">
+        <%= render "shared/list_posts", posts: @user.three_recent_posts %>
+      </ul>
+    </li>
+  </ul>
+  <%= link_to "See all posts", "#{@user.id}/posts", class: "btn see-all" %>
 </section>
