@@ -24,7 +24,7 @@ textarea {
   height: 200px;
 }
 
-li>*,
+li > *,
 .flex {
   display: flex;
 }
