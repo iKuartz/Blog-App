@@ -1,7 +1,0 @@
-      <% if @liked %>
-        <p>Liked!</p>
-      <% else %>
-        <%= form_with url: user_post_likes_path(@current_user, @post), scope: :like do |f| %>
-          <%= f.submit "Like", :class => "btn btn-like" %>
-        <% end %>
-      <% end %>
