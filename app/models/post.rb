@@ -3,21 +3,20 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  validates :title, presence: true
-  validates :text, presence: true
+  before_destroy :decrement_user_posts_counter
+  after_save :increment_user_posts_counter
 
-  after_save :increment_post_count
-  after_destroy :decrement_post_count
-
-  def increment_post_count
-    author.increment! :posts_counter
+  def five_recent_comments
+    comments.order(created_at: :desc).limit(5)
   end
 
-  def decrement_post_count
-    author.decrement! :posts_counter
+  private
+
+  def increment_user_posts_counter
+    author.increment!(:posts_counter)
   end
 
-  def recent_comment
-    comments.order(created_at: :desc).first(6)
+  def decrement_user_posts_counter
+    author.decrement!(:posts_counter)
   end
 end
