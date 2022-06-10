@@ -1,12 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe '/users', type: :request do
+RSpec.describe '/posts', type: :request do
   subject do
-    User.create(name: 'Terrosvaldo', photo: '', bio: 'Artificer from Cormyr.')
+    user = User.create(name: 'Tom', photo: '', bio: 'Teacher from Mexico.')
+    Post.create(author: user, title: 'Hello 2', text: 'This is my second post')
   end
 
   describe 'Get #index' do
-    before(:each) { get users_path }
+    before(:each) { get user_posts_path(subject.author) }
 
     it 'the status should be 200(:ok)' do
       expect(response).to have_http_status(:ok)
@@ -18,13 +19,13 @@ RSpec.describe '/users', type: :request do
   end
 
   describe 'Get #show' do
-    before(:each) { get user_path(subject.id) }
+    before(:each) { get user_post_path(subject.author, subject) }
 
     it 'the status should be 200(:ok)' do
       expect(response).to have_http_status(:ok)
     end
 
-    it "renders 'show' template" do
+    it "renders 'index' template" do
       expect(response).to render_template(:show)
     end
   end
