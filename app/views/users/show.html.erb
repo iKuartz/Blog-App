@@ -1,12 +1,19 @@
-<%= render @user %>
+<section id="users-show" class="flex-col">
+  <ul class="user-info flex-col">
+    <li class="flex">
+      <%= render "shared/user_container", user: @user %>
+    </li>
 
-<div class="bio">
-    <h2>Bio</h2>
-    <p><%=@user.bio%></p>
-</div>
+    <li class="bio flex-col border">
+      <h4>Bio</h4>
+      <p><%= @user.bio %></p>
+    </li>
 
-<%@post.each do |post|%>
-    <%= render post %>
-<%end%>
-
-<button><%= link_to ("See all posts"),user_posts_path(@user.id) %></button> 
+    <li class="posts">
+      <ul class="flex-col">
+        <%= render "shared/list_posts", posts: @user.three_recent_posts %>
+      </ul>
+    </li>
+  </ul>
+  <%= link_to "See all posts", "#{@user.id}/posts", class: "btn see-all" %>
+</section>

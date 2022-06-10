@@ -1,10 +1,11 @@
-<section class="users-list"> 
-  <h1>List of Post</h1> 
-  <div class="user-post">
-    <%= render "shared/profile", user: @posts.first.author %>   
-    <%@posts.each do |post| %>
-      <%= render "shared/post", post: post %>  
-      <%= render "shared/comments", comments: post.comments %> 
-    <%end %>    
-  </div>
+<section id="posts-index">
+    <div class="flex">
+      <%= render "shared/user_container", user: @user %>
+    </div>
+    <%= link_to "New Post", new_user_post_path(@current_user_id), class: "btn new-post" %>
+    <div>
+      <ul class="posts flex-col">
+        <%= render "shared/list_posts", posts: @posts.reverse %>
+      </ul>
+    </div>
 </section>
