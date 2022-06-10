@@ -5,7 +5,6 @@ class Comment < ApplicationRecord
   validates_associated :post, :author
   validates :text, presence: true
 
-
   before_destroy :decrement_post_comments_counter
   after_save :increment_post_comments_counter
 

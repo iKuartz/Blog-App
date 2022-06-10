@@ -25,11 +25,11 @@ RSpec.describe Post, type: :model do
     end
 
     it 'does not validate when a title exceeds 250char' do
-      post.title = 'This title exceeds 250 characters. This title exceeds 250 characters. 
+      post.title = 'This title exceeds 250 characters. This title exceeds 250 characters.
                       This title exceeds 250 characters. This title exceeds 250 characters.
-                      This title exceeds 250 characters. This title exceeds 250 characters. 
-                      This title exceeds 250 characters. This title exceeds 250 characters. 
-                      This title exceeds 250 characters. This title exceeds 250 characters. 
+                      This title exceeds 250 characters. This title exceeds 250 characters.
+                      This title exceeds 250 characters. This title exceeds 250 characters.
+                      This title exceeds 250 characters. This title exceeds 250 characters.
                       This title exceeds 250 characters. This title exceeds 250 characters. '
 
       expect(post).to_not be_valid
