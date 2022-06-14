@@ -157,3 +157,19 @@ p strong {
   padding: 8px;
   border: 0.5px solid black;
 }
+
+.field {
+  display:flex;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 10px;
+}
+
+.field label {
+  font-size: 16px;
+}
+
+.field input {
+  padding: 12px;
+  border: 1px solid black;
+}
