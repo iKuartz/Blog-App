@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+html {
+  background-color: darkgrey;
+}
+
 section {
   padding: 4vh 4vw;
   min-height: 100vh;
@@ -160,8 +164,8 @@ p strong {
 
 .field {
   display:flex;
-  align-items: center;
-  gap: 25px;
+  flex-direction: column;
+  gap: 5px;
   margin-bottom: 10px;
 }
 
@@ -172,6 +176,12 @@ p strong {
 .field input {
   padding: 12px;
   border: 1px solid black;
+  width: 40%;
+}
+
+.field textarea {
+  border: 1px solid black;
+  width: 40%
 }
 
 .app-btn {
