@@ -1,7 +1,4 @@
 require 'rails_helper'
-require 'database_cleaner/active_record'
-
-DatabaseCleaner.strategy = :truncation
 
 RSpec.describe Post, type: :model do
   subject(:post) do

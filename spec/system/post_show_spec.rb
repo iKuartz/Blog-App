@@ -1,7 +1,4 @@
 # require 'rails_helper'
-# require 'database_cleaner/active_record'
-
-# DatabaseCleaner.strategy = :truncation
 
 # RSpec.describe 'posts_show_page', type: :system do
 #   before :all do
@@ -72,5 +69,4 @@
 #       expect(page).to have_content @comment1.text
 #     end
 #   end
-#   DatabaseCleaner.clean
 # end
