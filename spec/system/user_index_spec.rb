@@ -1,4 +1,7 @@
 require 'rails_helper'
+require 'database_cleaner/active_record'
+
+DatabaseCleaner.strategy = :truncation
 
 RSpec.describe 'UserIndexPage', type: :system do
   before :all do
@@ -60,4 +63,5 @@ RSpec.describe 'UserIndexPage', type: :system do
       expect(page).to have_current_path(user_path(id: @user1.id))
     end
   end
+  DatabaseCleaner.clean
 end

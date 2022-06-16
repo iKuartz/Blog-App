@@ -1,4 +1,7 @@
 require 'rails_helper'
+require 'database_cleaner/active_record'
+
+DatabaseCleaner.strategy = :truncation
 
 RSpec.describe 'PostIndexPage', type: :system do
   before :all do
@@ -81,6 +84,7 @@ RSpec.describe 'PostIndexPage', type: :system do
       expect(page).to have_current_path(user_post_path(user_id: @user1.id, id: @post1.id))
     end
   end
+  DatabaseCleaner.clean
 end
 
 # rubocop:enable Metrics/BlockLength

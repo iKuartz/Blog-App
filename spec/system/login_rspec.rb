@@ -1,4 +1,7 @@
 require 'rails_helper'
+require 'database_cleaner/active_record'
+
+DatabaseCleaner.strategy = :truncation
 
 RSpec.describe 'LoginPage', type: :system do
   before :all do
@@ -54,4 +57,5 @@ RSpec.describe 'LoginPage', type: :system do
       expect(page).to have_current_path('/')
     end
   end
+  
 end

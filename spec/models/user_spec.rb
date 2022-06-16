@@ -1,7 +1,12 @@
 require 'rails_helper'
+require 'database_cleaner/active_record'
+
+DatabaseCleaner.strategy = :truncation
 
 RSpec.describe User, type: :model do
-  subject(:user) { User.new(name: 'Maria', photo: '', bio: 'Teacher from Brazil.') }
+  subject(:user) { User.new(id: 1, name: 'Babi', photo: 'https://randomuser.me/api/portraits/men/3.jpg',
+            bio: 'I used to spend hours writing creative copy', email: 'b@g.com', password: '123456',
+            created_at: '2022-06-15 06:29:35.011315', confirmed_at: '2022-06-15 18:08:24.835529') }
 
   before { user.save }
 
