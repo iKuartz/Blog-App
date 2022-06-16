@@ -163,7 +163,7 @@ p strong {
 }
 
 .field {
-  display:flex;
+  display: flex;
   flex-direction: column;
   gap: 5px;
   margin-bottom: 10px;
@@ -181,7 +181,7 @@ p strong {
 
 .field textarea {
   border: 1px solid black;
-  width: 40%
+  width: 40%;
 }
 
 .app-btn {
@@ -193,5 +193,5 @@ p strong {
 }
 
 .app-btn:hover {
-  background-color: rgb(12,12,12);
+  background-color: rgb(12, 12, 12);
 }
