@@ -1,7 +1,4 @@
 require 'rails_helper'
-require 'database_cleaner/active_record'
-
-DatabaseCleaner.strategy = :truncation
 
 RSpec.describe 'UserShowPage', type: :system do
   before :all do
@@ -46,19 +43,18 @@ RSpec.describe 'UserShowPage', type: :system do
     end
 
     it 'Shows the the number of posts the user has written' do
-      expect(page).to have_content('Number of Posts: 5')
+      expect(page).to have_content('Number of posts: 5')
     end
     it 'Shows the user\'s bio' do
       expect(page).to have_content @user1.bio
     end
 
     it 'Shows the user\'s first 3 posts' do
-      expect(page).to have_selector('.card', count: 5)
+      expect(page).to have_selector('.post-info', count: 5)
     end
 
     it 'Shows a button that lets me view all of a user\'s posts' do
-      expect(page).to have_button('See All Posts')
+      expect(page).to have_link('See all posts')
     end
   end
-  DatabaseCleaner.clean
 end
