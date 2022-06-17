@@ -32,7 +32,7 @@ RSpec.describe 'PostIndexPage', type: :system do
     @like2 = Like.create!(author_id: 2, post_id: 1)
     @like3 = Like.create!(author_id: 3, post_id: 1)
   end
-
+  # rubocop:disable Metrics/BlockLength
   context 'testing' do
     before :each do
       visit root_path
@@ -81,3 +81,4 @@ RSpec.describe 'PostIndexPage', type: :system do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
