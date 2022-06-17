@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+html {
+  background-color: darkgrey;
+}
+
 section {
   padding: 4vh 4vw;
   min-height: 100vh;
@@ -156,4 +160,38 @@ p strong {
 .input-box textarea {
   padding: 8px;
   border: 0.5px solid black;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.field label {
+  font-size: 16px;
+}
+
+.field input {
+  padding: 12px;
+  border: 1px solid black;
+  width: 40%;
+}
+
+.field textarea {
+  border: 1px solid black;
+  width: 40%;
+}
+
+.app-btn {
+  padding: 12px;
+  border: none;
+  background-color: rgb(41, 41, 41);
+  color: white;
+  transition: background-color 0.5s;
+}
+
+.app-btn:hover {
+  background-color: rgb(12, 12, 12);
 }
