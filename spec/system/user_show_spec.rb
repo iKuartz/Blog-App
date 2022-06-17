@@ -19,7 +19,7 @@ RSpec.describe 'UserShowPage', type: :system do
     @post3 = Post.create!(author_id: 1, title: 'Sample post3', text: 'Sample Text Content 3')
     @post4 = Post.create!(author_id: 1, title: 'Sample post3', text: 'Sample Text Content 3')
     @post5 = Post.create!(author_id: 2, title: 'Sample post4', text: 'Sample Text Content 4')
-    @post6 = Post.create!(author_id: 2, title: 'Sample post1', text: 'Sample Text Content 1')
+    @post6 = Post.create!(author_id: 2, title: 'Sample post4', text: 'Sample Text Content 1')
     @post7 = Post.create!(author_id: 1, title: 'Sample post2', text: 'Sample Text Content 2')
     @post8 = Post.create!(author_id: 3, title: 'Sample post3', text: 'Sample Text Content 3')
     @post9 = Post.create!(author_id: 3, title: 'Sample post4', text: 'Sample Text Content 4')
@@ -31,26 +31,26 @@ RSpec.describe 'UserShowPage', type: :system do
       fill_in 'user_email', with: 'a@g.com'
       fill_in 'user_password', with: '123456'
       click_button 'Log in'
-      visit user_path(id: @user1.id)
-    end
+      page.all('li').first.click
+    end 
 
     it 'Shows the user\'s profile picture' do
-      expect(page.has_xpath?("//img[@src = '#{@user1.photo}' ]"))
+      expect(page.has_xpath?("//img[@src = '#{@user2.photo}' ]"))
     end
 
     it 'Shows the user\'s username' do
-      expect(page).to have_content @user1.name
+      expect(page).to have_content @user2.name
     end
 
     it 'Shows the the number of posts the user has written' do
-      expect(page).to have_content('Number of posts: 5')
+      expect(page).to have_content('Number of posts: 2')
     end
     it 'Shows the user\'s bio' do
-      expect(page).to have_content @user1.bio
+      expect(page).to have_content @user2.bio
     end
 
-    it 'Shows the user\'s first 3 posts' do
-      expect(page).to have_selector('.post-info', count: 5)
+    it 'Shows the user\'s first 5 posts' do
+      expect(page).to have_selector('.post-info', count: 2)
     end
 
     it 'Shows a button that lets me view all of a user\'s posts' do

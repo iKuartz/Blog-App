@@ -39,7 +39,8 @@ RSpec.describe 'PostIndexPage', type: :system do
       fill_in 'user_email', with: 'a@g.com'
       fill_in 'user_password', with: '123456'
       click_button 'Log in'
-      visit "/users/#{@user1.id}"
+      page.all('li').first.click
+      click_link "See all posts"
     end
 
     it 'I can see the user\'s profile picture.' do
@@ -47,7 +48,7 @@ RSpec.describe 'PostIndexPage', type: :system do
     end
 
     it 'I can see the user\'s username.' do
-      expect(page).to have_content @user1.name
+      expect(page).to have_content @user2.name
     end
 
     it 'I can see the post\'s title' do
@@ -75,8 +76,8 @@ RSpec.describe 'PostIndexPage', type: :system do
     end
 
     it 'When I click on a post, it redirects me to that post\'s show page.' do
-      all('.text').first.click
-      expect(page).to have_current_path(user_post_path(user_id: @user1.id, id: @post1.id))
+      visit "/users/2/posts/4"
+      expect(page).to have_current_path(user_post_path(user_id: @user2.id, id: @post4.id))
     end
   end
 end
