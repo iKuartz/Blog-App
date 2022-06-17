@@ -39,8 +39,8 @@ RSpec.describe 'posts_show_page', type: :system do
       fill_in 'user_email', with: 'a@g.com'
       fill_in 'user_password', with: '123456'
       click_button 'Log in'
-    page.all('li').first.click
-     click_link "See all posts"
+      page.all('li').first.click
+      click_link 'See all posts'
     end
 
     it 'I can see the post title' do

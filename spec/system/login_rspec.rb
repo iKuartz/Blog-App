@@ -15,12 +15,12 @@ RSpec.describe 'LoginPage', type: :system do
                           created_at: '2022-06-15 06:29:35.011315', confirmed_at: '2022-06-15 18:08:24.835529')
   end
 
-#   after :all do
-#     User.all.destroy_all
-#     @user1.destroy
-#     @user2.destroy
-#     @user3.destroy
-#   end
+  #   after :all do
+  #     User.all.destroy_all
+  #     @user1.destroy
+  #     @user2.destroy
+  #     @user3.destroy
+  #   end
 
   context 'testing' do
     before :each do

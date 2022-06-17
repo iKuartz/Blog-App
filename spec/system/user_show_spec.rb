@@ -32,7 +32,7 @@ RSpec.describe 'UserShowPage', type: :system do
       fill_in 'user_password', with: '123456'
       click_button 'Log in'
       page.all('li').first.click
-    end 
+    end
 
     it 'Shows the user\'s profile picture' do
       expect(page.has_xpath?("//img[@src = '#{@user2.photo}' ]"))

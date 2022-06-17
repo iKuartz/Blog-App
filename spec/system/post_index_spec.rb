@@ -40,7 +40,7 @@ RSpec.describe 'PostIndexPage', type: :system do
       fill_in 'user_password', with: '123456'
       click_button 'Log in'
       page.all('li').first.click
-      click_link "See all posts"
+      click_link 'See all posts'
     end
 
     it 'I can see the user\'s profile picture.' do
@@ -76,10 +76,8 @@ RSpec.describe 'PostIndexPage', type: :system do
     end
 
     it 'When I click on a post, it redirects me to that post\'s show page.' do
-      visit "/users/2/posts/4"
+      visit '/users/2/posts/4'
       expect(page).to have_current_path(user_post_path(user_id: @user2.id, id: @post4.id))
     end
   end
 end
-
-# rubocop:enable Metrics/BlockLength

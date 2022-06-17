@@ -4,7 +4,7 @@ require_relative '../config/environment'
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 require 'capybara/rspec'
-require 'database_cleaner/active_record' 
+require 'database_cleaner/active_record'
 
 begin
   ActiveRecord::Migration.maintain_test_schema!
@@ -15,11 +15,10 @@ end
 
 Capybara.register_driver :selenium_chrome do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
- end
- 
- Capybara.javascript_driver = :selenium_chrome
+end
 
- 
+Capybara.javascript_driver = :selenium_chrome
+
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = false
